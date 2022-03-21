@@ -2,3 +2,4 @@
 siw-jpa-es1/bin/
 siw-jpa-es1/src/META-INF/persistence.xml
 siw-jpa-es2/src/META-INF/persistence.xml
+siw-jpa-es3/src/META-INF/persistence.xml
