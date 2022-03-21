@@ -1,6 +1,8 @@
 package it.uniroma3.siw.model;
 
 import java.time.LocalDate;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -28,6 +30,12 @@ public class Customer {
 	
 	@Column(nullable = false)
 	private LocalDate registrationDate;
+	
+	@OneToOne
+	private Address address;
+	
+	@OneToMany(mappedBy = "customer")
+	private List<Order> orders;
 	
 	public Customer() {
 		
@@ -100,6 +108,22 @@ public class Customer {
 		this.registrationDate = registrationDate;
 	}
 	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		Customer that = (Customer) obj;
