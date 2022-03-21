@@ -21,7 +21,7 @@ public class Provider {
 	@Column(nullable = false)
 	private String email;
 	
-	@Column
+	@Column(unique = true)
 	private String vatin;
 	
 	@OneToOne

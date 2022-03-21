@@ -7,6 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @NamedQuery(name = "findAllCustomers", query = "SELECT c FROM Customer c")
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"firstName, lastName, email"}))
 public class Customer {
 	
 	@Id
