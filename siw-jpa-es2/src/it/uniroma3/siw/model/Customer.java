@@ -36,6 +36,7 @@ public class Customer {
 	private Address address;
 	
 	@OneToMany(mappedBy = "customer")
+	@OrderBy("creationTime asc")
 	private List<Order> orders;
 	
 	public Customer() {
