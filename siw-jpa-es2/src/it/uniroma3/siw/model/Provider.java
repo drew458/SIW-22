@@ -24,7 +24,7 @@ public class Provider {
 	@Column(unique = true)
 	private String vatin;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private Address address;
 	
 	@ManyToMany

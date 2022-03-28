@@ -3,11 +3,22 @@ package it.uniroma3.siw.model;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @NamedQuery(name = "findAllCustomers", query = "SELECT c FROM Customer c")
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"firstName, lastName, email"}))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"firstName", "lastName", "email"}))
 public class Customer {
 	
 	@Id
@@ -32,10 +43,10 @@ public class Customer {
 	@Column(nullable = false)
 	private LocalDate registrationDate;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private Address address;
 	
-	@OneToMany(mappedBy = "customer")
+	@OneToMany(mappedBy = "customer", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@OrderBy("creationTime asc")
 	private List<Order> orders;
 	
