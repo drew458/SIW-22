@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
@@ -20,7 +21,7 @@ public class Libro {
 	@Id
 	private Long codiceCopia;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.LAZY)
 	private List<Autore> autori;
 
 	public String getTitolo() {
