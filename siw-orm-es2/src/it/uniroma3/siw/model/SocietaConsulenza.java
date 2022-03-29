@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class SocietaConsulenza {
 	
-	@Column
+	@Column(nullable = false)
 	private String nome;
 	
 	@Id

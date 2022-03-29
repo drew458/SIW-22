@@ -17,13 +17,13 @@ public class Giocatore {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column
+	@Column(nullable = false)
 	private String nome;
 	
-	@Column
+	@Column(nullable = false)
 	private String cognome;
 	
-	@Column
+	@Column(nullable = false)
 	private Year dataNascita;
 	
 	@Column

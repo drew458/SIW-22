@@ -12,10 +12,10 @@ import javax.persistence.OneToMany;
 @Entity
 public class Procuratore {
 	
-	@Column
+	@Column(nullable = false)
 	private String nome;
 	
-	@Column
+	@Column(nullable = false)
 	private String cognome;
 	
 	@Id
