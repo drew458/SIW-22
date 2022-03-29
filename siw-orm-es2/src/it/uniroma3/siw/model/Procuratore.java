@@ -5,18 +5,12 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Procuratore {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
 	
 	@Column
 	private String nome;
@@ -24,7 +18,7 @@ public class Procuratore {
 	@Column
 	private String cognome;
 	
-	@Column
+	@Id
 	private String codiceFederale;
 	
 	@OneToMany(fetch = FetchType.LAZY)
@@ -32,14 +26,6 @@ public class Procuratore {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private SocietaConsulenza datoreLavoro;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getNome() {
 		return nome;
@@ -88,7 +74,6 @@ public class Procuratore {
 	public Procuratore(Long id, String nome, String cognome, String codiceFederale, List<Giocatore> giocatoriSeguiti,
 			SocietaConsulenza datoreLavoro) {
 		super();
-		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.codiceFederale = codiceFederale;
@@ -99,11 +84,11 @@ public class Procuratore {
 	@Override
 	public boolean equals(Object obj) {
 		Procuratore that = (Procuratore) obj;
-		return this.id.equals(that.getId());
+		return this.codiceFederale.equals(that.getCodiceFederale());
 	}
 	
 	@Override
 	public int hashCode() {
-		return this.id.hashCode();
+		return this.codiceFederale.hashCode();
 	}
 }
