@@ -5,8 +5,6 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -14,15 +12,11 @@ import javax.persistence.OneToMany;
 @Entity
 @NamedQuery(name = "FindAllCuratori", query = "SELECT c FROM Curatore c")
 public class Curatore {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
 	
 	@Column
 	private String nomeCognome;
 	
-	@Column
+	@Id
 	private String numeroMatricola;
 	
 	@OneToMany(fetch = FetchType.LAZY)
@@ -33,17 +27,8 @@ public class Curatore {
 	}
 
 	public Curatore(Long id, String nomeCognome, String numeroMatricola) {
-		this.id = id;
 		this.nomeCognome = nomeCognome;
 		this.numeroMatricola = numeroMatricola;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getNomeCognome() {
@@ -73,11 +58,11 @@ public class Curatore {
 	@Override
 	public boolean equals(Object obj) {
 		Curatore that = (Curatore) obj;
-		return this.id.equals(that.getId());
+		return this.numeroMatricola.equals(that.getNumeroMatricola());
 	}
 	
 	@Override
 	public int hashCode() {
-		return this.id.hashCode();
+		return this.numeroMatricola.hashCode();
 	}
 }
