@@ -15,10 +15,10 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import org.junit.Test;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class ProductTest {
 
@@ -56,7 +56,7 @@ class ProductTest {
 	}
 
 	@AfterAll
-	public void closeEntityManager() throws SQLException{
+	public static void closeEntityManager() throws SQLException{
 		if (em != null) em.close();
 		if (em != null) emf.close();
 	}
@@ -65,14 +65,14 @@ class ProductTest {
 	@Test
 	public void testDynamicQuery() throws Exception {		
 		// Selezione
-		TypedQuery<Product> queryFindProductByName = em.createQuery("SELECT p.name FROM Product p WHERE p.name='golf'", Product.class);
-		List<Product> products = queryFindProductByName.getResultList();
+		TypedQuery<String> queryFindProductByName = em.createQuery("SELECT p.name FROM Product p WHERE p.name='golf'", String.class);
+		List<String> products = queryFindProductByName.getResultList();
 		assertFalse(products.isEmpty());
 		assertEquals(1, products.size());
-		assertEquals(P1.getName(), products.get(0).getName());
+		assertEquals(P1.getName(), products.get(0));
 
 		// Cancellazione
-		TypedQuery<Integer> queryDeleteProductByName = em.createQuery("DELETE FROM Product p WHERE p.name='polo'", Integer.class);
+		Query queryDeleteProductByName = em.createQuery("DELETE FROM Product p WHERE p.name='polo'");
 		tx.begin();
 		int deletedProducts = queryDeleteProductByName.executeUpdate();
 		tx.commit();
@@ -88,7 +88,7 @@ class ProductTest {
 		assertEquals(2, products.size());
 
 		// Cancellazione
-		TypedQuery<Integer> queryDeleteAllProducts = em.createNamedQuery("deleteAllProducts", Integer.class);
+		Query queryDeleteAllProducts = em.createNamedQuery("deleteAllProducts");
 		tx.begin();
 		int deletedProducts = queryDeleteAllProducts.executeUpdate();
 		tx.commit();
@@ -96,15 +96,16 @@ class ProductTest {
 	}
 
 	@Test
-	public void testNativeQuery() throws Exception {
+	public void testNativeQuery() throws Exception {		
 		// Selezione
-		TypedQuery<Product> queryFindProductByName = em.createQuery("SELECT * FROM product WHERE name='golf'", Product.class);
+		Query queryFindProductByName = em.createNativeQuery("SELECT * FROM product WHERE name='golf'", Product.class);
+		@SuppressWarnings("unchecked")
 		List<Product> products = queryFindProductByName.getResultList();
 		assertFalse(products.isEmpty());
 		assertEquals(P1.getName(), products.get(0).getName());
 
 		// Cancellazione
-		TypedQuery<Integer> queryDeleteProductByName = em.createNamedQuery("DELETE * FROM product WHERE name='polo'", Integer.class);
+		Query queryDeleteProductByName = em.createNamedQuery("DELETE * FROM product WHERE name='polo'");
 		tx.begin();
 		int deletedProducts = queryDeleteProductByName.executeUpdate();
 		tx.commit();

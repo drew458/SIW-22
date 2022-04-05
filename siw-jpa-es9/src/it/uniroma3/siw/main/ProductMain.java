@@ -1,5 +1,7 @@
 package it.uniroma3.siw.main;
 
+import java.util.HashMap;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -11,7 +13,7 @@ import it.uniroma3.siw.model.Product;
 public class ProductMain {
 
 	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("product-unit");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("products-unit");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		
@@ -39,6 +41,14 @@ public class ProductMain {
 		em.persist(p10);
 		tx.commit();
 		
-		TypedQuery<Product> 
+		HashMap<Float, Long> price2count = new HashMap<>();
+		TypedQuery<Object[]> query = em.createQuery("SELECT p.price, count(p) FROM Product p GROUP BY p.price", Object[].class);
+		for(Object[] o : query.getResultList()) {
+			price2count.put((Float) o[0], (Long) o[1]);
+		}
+		
+		for(Float price : price2count.keySet()) {
+			System.out.println("Price: "+price+" ----------> "+price2count.get(price));
+		}
 	}
 }
