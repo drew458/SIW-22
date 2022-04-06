@@ -32,14 +32,15 @@ class ProductTest {
 	public static void initEntityManagerAndProducts() throws Exception {
 		emf = Persistence.createEntityManagerFactory("products-unit-test");
 		em = emf.createEntityManager();
-		P1 = new Product("golf", 24999.99f, "5 porte", "0001");
-		P2 = new Product("polo", 14999.9f, "3 porte", "0002");
 	}
 
 	@BeforeEach
 	public void cleanDb() {
-		// Inizializzazione DB
+		P1 = new Product("golf", 24999.99f, "5 porte", "0001");
+		P2 = new Product("polo", 14999.9f, "3 porte", "0002");
 		tx = em.getTransaction();
+		
+		// Inizializzazione DB
 		Query deleteAllRows = em.createQuery("DELETE FROM Product p");
 		tx.begin();
 		deleteAllRows.executeUpdate();
@@ -105,7 +106,7 @@ class ProductTest {
 		assertEquals(P1.getName(), products.get(0).getName());
 
 		// Cancellazione
-		Query queryDeleteProductByName = em.createNamedQuery("DELETE * FROM product WHERE name='polo'");
+		Query queryDeleteProductByName = em.createNativeQuery("DELETE FROM product WHERE name='polo'");
 		tx.begin();
 		int deletedProducts = queryDeleteProductByName.executeUpdate();
 		tx.commit();
