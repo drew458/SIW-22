@@ -10,3 +10,4 @@ siw-jpa-es7/src/META-INF/persistence.xml
 siw-jpa-es8/src/META-INF/persistence.xml
 siw-jpa-es9/src/META-INF/persistence.xml
 siw-repository-es1/src/META-INF/persistence.xml
+siw-repository-es3/src/META-INF/persistence.xml
