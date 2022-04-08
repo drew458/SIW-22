@@ -77,6 +77,7 @@ class ProductTest {
 		tx.begin();
 		int deletedProducts = queryDeleteProductByName.executeUpdate();
 		tx.commit();
+		assertTrue(deletedProducts!=0);
 		assertEquals(1, deletedProducts);		
 	}
 
