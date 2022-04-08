@@ -25,7 +25,7 @@ public class ProductRepository {
 	}
 
 	public List<Product> findAll() {
-		return em.createQuery("select p from Product p", Product.class).getResultList();
+		return em.createQuery("SELECT p FROM Product p", Product.class).getResultList();
 	}
 
 	public void delete(Product product) {
@@ -33,11 +33,11 @@ public class ProductRepository {
 	}
 
 	public void deleteAll(){
-		this.em.createQuery("delete from Product").executeUpdate();
+		this.em.createQuery("DELETE FROM Product").executeUpdate();
 	}
 
 	public long count() {
-		return (Long)this.em.createQuery("select count(id) from Product").getSingleResult();
+		return (Long)this.em.createQuery("SELECT Count(id) FROM Product").getSingleResult();
 	}
 
 	public boolean existsById(Long id) {
@@ -47,5 +47,4 @@ public class ProductRepository {
 	public void setEntityManager(EntityManager em) {
 		this.em = em; 
 	}
-
 }
