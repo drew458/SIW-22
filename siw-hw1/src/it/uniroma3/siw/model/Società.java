@@ -16,23 +16,11 @@ public class Società {
 	@Column(nullable = false)
 	public String ragioneSociale;
 	
-	@Column
-	public String indirizzoSede;
-	
-	@Column
-	public String numeroCivicoSede;
-	
-	@Column
-	public String comuneSede;
-	
-	@Column
-	public String capSede;
-	
-	@Column
-	public String provinciaSede;
-	
 	@Column(nullable = false)
 	public String numeroTelefono;
+	
+	@Column
+	public Indirizzo indirizzo;
 
 	public Long getId() {
 		return id;
@@ -50,46 +38,6 @@ public class Società {
 		this.ragioneSociale = ragioneSociale;
 	}
 
-	public String getViaSede() {
-		return indirizzoSede;
-	}
-
-	public void setViaSede(String indirizzoSede) {
-		this.indirizzoSede = indirizzoSede;
-	}
-
-	public String getNumeroCivicoSede() {
-		return numeroCivicoSede;
-	}
-
-	public void setNumeroCivicoSede(String numeroCivicoSede) {
-		this.numeroCivicoSede = numeroCivicoSede;
-	}
-
-	public String getComuneSede() {
-		return comuneSede;
-	}
-
-	public void setComuneSede(String comuneSede) {
-		this.comuneSede = comuneSede;
-	}
-
-	public String getCapSede() {
-		return capSede;
-	}
-
-	public void setCapSede(String capSede) {
-		this.capSede = capSede;
-	}
-
-	public String getProvinciaSede() {
-		return provinciaSede;
-	}
-
-	public void setProvinciaSede(String provinciaSede) {
-		this.provinciaSede = provinciaSede;
-	}
-
 	public String getNumeroTelefono() {
 		return numeroTelefono;
 	}
@@ -98,23 +46,26 @@ public class Società {
 		this.numeroTelefono = numeroTelefono;
 	}
 	
+	public Indirizzo getIndirizzo() {
+		return indirizzo;
+	}
+
+	public void setIndirizzo(Indirizzo indirizzo) {
+		this.indirizzo = indirizzo;
+	}
+
 	public Società() {
 		super();
 	}
-
-	public Società(Long id, String ragioneSociale, String viaSede, String numeroCivicoSede, String comuneSede,
-			String capSede, String provinciaSede, String numeroTelefono) {
+	
+	public Società(Long id, String ragioneSociale, String numeroTelefono, Indirizzo indirizzo) {
 		super();
 		this.id = id;
 		this.ragioneSociale = ragioneSociale;
-		this.indirizzoSede = viaSede;
-		this.numeroCivicoSede = numeroCivicoSede;
-		this.comuneSede = comuneSede;
-		this.capSede = capSede;
-		this.provinciaSede = provinciaSede;
 		this.numeroTelefono = numeroTelefono;
+		this.indirizzo = indirizzo;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		Società that = (Società) obj;
@@ -124,6 +75,5 @@ public class Società {
 	@Override
 	public int hashCode() {
 		return this.id.hashCode();
-	}
-	
+	}	
 }
