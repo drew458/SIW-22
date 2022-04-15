@@ -22,7 +22,6 @@ a, a:visited, a:hover, a:active {
 }
 
 .content {
-    padding: 10px;
     -webkit-flex: 5;
     flex: 5;
 }
@@ -31,12 +30,28 @@ a, a:visited, a:hover, a:active {
     background-color: lightgray;
     border-radius: 25px;
     margin-left: 5%;
-    margin-top: 10%;
+    margin-top: 12px;
+}
+
+.cardMainContent {
+    background-color: lightgray;
+    border-radius: 25px;
+    margin-left: 3%;
+    margin-right: 1%;
+    margin-top: 12px;
+    margin-bottom: 2%;
 }
 
 .sidebar-content {
     padding-top: 3%;
     text-align: center;
+}
+
+.main-content {
+    padding-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-bottom: 1%;
 }
 
 #profName {
@@ -64,21 +79,6 @@ a, a:visited, a:hover, a:active {
     font-size: large;
 }
 
-.cardMainContent {
-    background-color: lightgray;
-    border-radius: 25px;
-    margin-left: 3%;
-    margin-top: 3%;
-    margin-right: 1%;
-}
-
-.main-content {
-    padding-top: 3%;
-    margin-left: 3%;
-    margin-right: 3%;
-    padding-bottom: 1%;
-}
-
 .whiteSubtitleBox {
     background-color: teal;
     border-radius: 25px;
@@ -89,4 +89,5 @@ a, a:visited, a:hover, a:active {
     margin-left: 2%;
     padding-top: 4px;
     padding-bottom: 2px;
+    font-weight: bold;
 }
