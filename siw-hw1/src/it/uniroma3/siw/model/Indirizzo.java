@@ -14,19 +14,19 @@ public class Indirizzo {
 	public Long id;
 
 	@Column
-	public String indirizzoSede;
+	public String indirizzo;
 	
 	@Column
-	public String numeroCivicoSede;
+	public String numeroCivico;
 	
 	@Column
-	public String comuneSede;
+	public String comune;
 	
 	@Column
-	public String capSede;
+	public String cap;
 	
 	@Column
-	public String provinciaSede;
+	public String provincia;
 
 	public Long getId() {
 		return id;
@@ -37,43 +37,43 @@ public class Indirizzo {
 	}
 
 	public String getIndirizzoSede() {
-		return indirizzoSede;
+		return indirizzo;
 	}
 
 	public void setIndirizzoSede(String indirizzoSede) {
-		this.indirizzoSede = indirizzoSede;
+		this.indirizzo = indirizzoSede;
 	}
 
 	public String getNumeroCivicoSede() {
-		return numeroCivicoSede;
+		return numeroCivico;
 	}
 
 	public void setNumeroCivicoSede(String numeroCivicoSede) {
-		this.numeroCivicoSede = numeroCivicoSede;
+		this.numeroCivico = numeroCivicoSede;
 	}
 
 	public String getComuneSede() {
-		return comuneSede;
+		return comune;
 	}
 
 	public void setComuneSede(String comuneSede) {
-		this.comuneSede = comuneSede;
+		this.comune = comuneSede;
 	}
 
 	public String getCapSede() {
-		return capSede;
+		return cap;
 	}
 
 	public void setCapSede(String capSede) {
-		this.capSede = capSede;
+		this.cap = capSede;
 	}
 
 	public String getProvinciaSede() {
-		return provinciaSede;
+		return provincia;
 	}
 
 	public void setProvinciaSede(String provinciaSede) {
-		this.provinciaSede = provinciaSede;
+		this.provincia = provinciaSede;
 	}
 
 	public Indirizzo() {
@@ -83,11 +83,11 @@ public class Indirizzo {
 	public Indirizzo(String indirizzoSede, String numeroCivicoSede, String comuneSede, String capSede,
 			String provinciaSede) {
 		super();
-		this.indirizzoSede = indirizzoSede;
-		this.numeroCivicoSede = numeroCivicoSede;
-		this.comuneSede = comuneSede;
-		this.capSede = capSede;
-		this.provinciaSede = provinciaSede;
+		this.indirizzo = indirizzoSede;
+		this.numeroCivico = numeroCivicoSede;
+		this.comune = comuneSede;
+		this.cap = capSede;
+		this.provincia = provinciaSede;
 	}
 	
 	

@@ -1,10 +1,13 @@
 package it.uniroma3.siw.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Società {
@@ -19,7 +22,11 @@ public class Società {
 	@Column(nullable = false)
 	public String numeroTelefono;
 	
-	@Column
+	/**
+	 * Viene scelta una strategia di fetch eager perche è una relazione uno ad uno
+	 * Vengono abilitate delle operazioni in cascata perché l'associazione esprime una composizione
+	 */
+	@OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
 	public Indirizzo indirizzo;
 
 	public Long getId() {
