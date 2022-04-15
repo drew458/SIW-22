@@ -54,6 +54,10 @@ a, a:visited, a:hover, a:active {
     font-size: large;
 }
 
+#profMail {
+    word-wrap: break-word; 
+}
+
 .profCv {
     padding-top: 3%;
     padding-bottom: 5%;
