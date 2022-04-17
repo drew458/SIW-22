@@ -62,7 +62,7 @@ img{
 }
 
 .main-content {
-    padding-top: 3%;
+    margin-top: 3%;
     margin-left: 3%;
     margin-right: 3%;
     padding-bottom: 1%;
@@ -81,16 +81,14 @@ img{
 .contactInfo {
     padding-top: 2%;
     font-size: large;
-}
-
-#profMail {
     word-wrap: break-word; 
 }
 
 .profCv {
     padding-top: 3%;
-    padding-bottom: 5%;
+    margin-bottom: 5%;
     font-size: large;
+    word-wrap: break-word; 
 }
 
 .whiteSubtitleBox {
