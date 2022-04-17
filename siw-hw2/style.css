@@ -4,10 +4,20 @@ html, body {
     font-family: helvetica, arial, sans-serif;
 }
 
-a, a:visited, a:hover, a:active {
+a, a:visited, a:active {
     color: #000066;
     font-weight: bold;
     text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+    background-color: #ffFFaa;
+    color: black;
+}
+
+img{
+    border-radius: 25px;
 }
 
 .flex-container {
@@ -65,7 +75,7 @@ a, a:visited, a:hover, a:active {
 }
 
 #profImage {
-    padding-top: 3%;
+    margin-top: 3%;
 }
 
 .contactInfo {
