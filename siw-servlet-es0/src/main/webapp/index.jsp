@@ -15,6 +15,10 @@
 		<div>
 			<input type="submit" name="sumbit" value="invia" />
 		</div>
+		<div>
+			${messaggiErrore[nome]}
+			${messaggiErrore[cognome]}
+		</div>
 	</form>
 </body>
 </html>
