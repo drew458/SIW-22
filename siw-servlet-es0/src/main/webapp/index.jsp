@@ -5,19 +5,18 @@
 	<title>Prima Webapp</title>
 </head>
 <body>
+	<div> ${messaggioErrore} </div>
 	<form action="persona" method="post">
 		<div>
-			Nome: <input type="text" name="nome" />
+			Nome: <input type="text" name="nome" value="${nome}" />
 		</div>
+		<div> ${messaggiErrore["nome"]} </div>
 		<div>
-			Cognome: <input type="text" name="cognome" />
+			Cognome: <input type="text" name="cognome" value="${cognome}" />
 		</div>
+		<div> ${messaggiErrore["cognome"]} </div>
 		<div>
 			<input type="submit" name="sumbit" value="invia" />
-		</div>
-		<div>
-			${messaggiErrore[nome]}
-			${messaggiErrore[cognome]}
 		</div>
 	</form>
 </body>
