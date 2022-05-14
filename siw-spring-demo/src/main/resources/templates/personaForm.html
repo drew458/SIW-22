@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<!-- <link href="/css/my-style.css" rel="stylesheet" /> -->
+	<title>Inserimento persona</title>
+</head>
+
+<form th:action= "@{/persona}" th:object="${persona}" method="POST">
+	<div>
+		Nome: <input type="text" th:field="*{nome}" />
+	</div>
+	
+	<div>
+		Cognome: <input type="text" th:field="*{cognome}" />
+	</div>
+	
+	<div>
+		Età: <input type="text" th:field="*{eta}" />
+	</div>
+	
+	<div>
+		<button type="submit">Conferma</button>
+	</div>
+</form>
+</html>

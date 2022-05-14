@@ -12,3 +12,4 @@ siw-jpa-es9/src/META-INF/persistence.xml
 siw-repository-es1/src/META-INF/persistence.xml
 siw-repository-es3/src/META-INF/persistence.xml
 siw-hw1/src/META-INF/persistence.xml
+siw-spring-demo/src/main/resources/application.properties
