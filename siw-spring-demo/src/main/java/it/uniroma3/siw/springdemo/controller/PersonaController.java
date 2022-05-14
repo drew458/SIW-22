@@ -30,8 +30,8 @@ public class PersonaController {
 	@PostMapping("/persona")
 	public String addPersona(@Valid @ModelAttribute("persona") Persona persona, BindingResult bindingResult, Model model) {
 		if(!bindingResult.hasErrors()) {
-			service.save(persona);
-			model.addAttribute("persona", model);
+			this.service.save(persona);
+			model.addAttribute("persona", persona);
 			return "persona.html";
 		}
 		return "personaForm.html";
