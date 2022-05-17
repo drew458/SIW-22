@@ -7,16 +7,23 @@
 </head>
 
 <form th:action= "@{/persona}" th:object="${persona}" method="POST">
+	<div th:if="${#field.hasGlobalErrors()}">
+		<p th:each="err : ${#fields.hasGlobalErrors()}" th:text"${err}">Errore globale</p>
+	</div>
+
 	<div>
 		Nome: <input type="text" th:field="*{nome}" />
+		<div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
 	</div>
 	
 	<div>
 		Cognome: <input type="text" th:field="*{cognome}" />
+		<div th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></div>
 	</div>
 	
 	<div>
 		Età: <input type="text" th:field="*{eta}" />
+		<div th:if="${#fields.hasErrors('eta')}" th:errors="*{eta}"></div>
 	</div>
 	
 	<div>

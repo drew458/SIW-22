@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Persone</title>
+</head>
+<body>
+	<h1>Elenco Persone</h1>
+	<table>
+		<tr>
+			<th>Nome</th>
+			<th>Cognome</th>
+			<th></th><th></th><th></th>
+		</tr>
+		
+		<tr th:each="persona : ${persone}">
+			<td th:text="${persona.nome}">Nome</td>
+			<td th:text="${persona.cognome}">Cognome</td>
+			<td>
+				<a href="persona.html" th:href="@{'/toDeletePersona' + '/' + ${persona.id}}"
+					th:text="cancella">Cancella</a>
+			</td>
+			<td>
+				<a href="persona.html" th:href="@{'/updatePersona' + '/' + ${persona.id}}"
+					th:text="modifica">Modifica</a>
+			</td>
+		</tr>
+			
+		</tr>
+	</table>
+	<footer>
+		<a href="/">Home</a>
+	</footer>
+</body>
+
+</html>

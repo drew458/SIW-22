@@ -17,10 +17,15 @@ public class PersonaService {
 	@Autowired
 	private PersonaRepository repository;
 	
-	/* Spring boot si occupa di iniziare e chiudere la transazione */
+	/* Spring boot si occupa di iniziare e chiudere la transazione, e di implementare il metodo save nella classe repository */
 	@Transactional
 	public void save(Persona persona) {
 		repository.save(persona);
+	}
+	
+	@Transactional
+	public void delete(Persona persona) {
+		repository.delete(persona);
 	}
 	
 	public Persona findById(Long id) {
@@ -34,5 +39,9 @@ public class PersonaService {
 			persone.add(p);
 		}
 		return persone;
+	}
+	
+	public boolean alreadyExists(Persona persona) {
+		return repository.existsByNomeAndCognomeAndEta(persona.getNome(), persona.getCognome(), persona.getEta());
 	}
 }

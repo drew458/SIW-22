@@ -5,6 +5,9 @@ import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+
+import org.springframework.lang.NonNull;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -21,6 +24,7 @@ public class Persona {
 	@NotBlank
 	private String cognome;
 	
+	@NonNull
 	@Min(0)
 	@Max(120)
 	private Integer eta;
