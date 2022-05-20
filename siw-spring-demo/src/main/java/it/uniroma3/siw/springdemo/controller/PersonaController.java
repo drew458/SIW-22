@@ -42,10 +42,17 @@ public class PersonaController {
 		return "personaForm.html";
 	}
 	
-	//TODO
 	@PostMapping("/toDeletePersona/{id}")
 	public String toDeletePersona(@PathVariable("id") Long id, Model model) {
-		
+		model.addAttribute("persona", service.findById(id));
+		return "toDeletePersona.html";
+	}
+	
+	@PostMapping("/deletePersona/{id}")
+	public String deletePersona(@PathVariable("id") Long id, Model model) {
+		service.deleteById(id);
+		model.addAttribute("persone", service.findAll());
+		return "persone.html";
 	}
 	
 	// richiede tutte le persone

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<!-- <link href="/css/my-style.css" rel="stylesheet" /> -->
+	<title>Dettagli persona</title>
+</head>
+
+<body>
+	<div>
+		<h1>Persona da cancellare:</h1>		
+		<div>
+			<span th:text="${persona.nome}">Paolo</span>
+			<span th:text="${persona.cognome}">Rossi</span>
+			<span th:text="${persona.eta}">55</span>
+		</div>	
+	</div>
+	<div>
+		<a href="persona.html" th:href="@{'/deletePersona'+'/'+${persona.id}}" th:text="Conferma">Conferma</a>
+	</div>
+	
+	<footer><a href="/">Home</a></footer>
+</body>
+</html>

@@ -44,4 +44,9 @@ public class PersonaService {
 	public boolean alreadyExists(Persona persona) {
 		return repository.existsByNomeAndCognomeAndEta(persona.getNome(), persona.getCognome(), persona.getEta());
 	}
+	
+	@Transactional
+	public void deleteById(Long id) {
+		repository.deleteById(id);
+	}
 }
